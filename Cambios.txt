@@ -1,0 +1,10 @@
+Lo principal ha sido establecer una estructura de paquetes para ordenar todo un poco.
+
+Los documentos heredan de una clase padre abstracta, ya que todos usan la misma estructura interna, de esta manera facilitamos como funciona el validador, ya que le pasamos un documento y asi no hay que hacer un metodo por tipo de documento.
+
+El enumerado es el mismo que se proporcionaba.
+
+A la hora de implementar los validadores todos heredan de una interfaz común, y estos son generados por sus factories, usando el patrón de "Abstract Factory", que a su vez se enlaza con el patrón de "Factory"
+
+Dentro del ValidadorFactoryProduces recibimos un string con el tipo de validador que queremos generar, esto se podría cambiar por una comprobación del tipo de Documento que recibe, así podriamos recuperar el que queramos para un objeto especifico, y nos ahorramos errores al pasar el string.
+He creado la excepcion que tira el ValidadorFactoryProducer, en caso de que se le mande un valor de string que no se contemple.
